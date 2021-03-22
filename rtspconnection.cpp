@@ -51,7 +51,7 @@ void RtspConnection::readyRead()
 		
 		body.append("v=0\r\n");
 		body.append("s=test stream\r\n");
-		body.append("o=- 0 0 IN IP4 192.168.0.6\r\n");
+        body.append(QString("o=- 0 0 IN IP4 %1\r\n").arg(rtspClientSocket->localAddress().toString()));
 		body.append("t=0\r\n");
 //		body.append("a=recvonly\r\n");
 		body.append("m=video 0 RTP/AVP 96\r\n");
